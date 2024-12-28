@@ -1,15 +1,5 @@
--- Получаем персонажа игрока
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local rightArm = character:WaitForChild("RightArm")
 
--- Получаем правую руку персонажа
-local rightArm = character:WaitForChild("RightUpperArm")
-
--- Получаем Motor6D, который управляет движением правой руки
-local motor = rightArm:FindFirstChild("RightShoulder")
-
--- Проверяем, если Motor6D существует
-if motor then
-    -- Поднимаем руку на 50 градусов
-    motor.C0 = motor.C0 * CFrame.Angles(math.rad(50), 0, 0)
-end
+-- Устанавливаем позицию руки на 45° по оси X
+rightArm.C0 = rightArm.C0 * CFrame.Angles(math.rad(45), 0, 0)
